@@ -1,8 +1,8 @@
-<div class="panel panel-default">
+<div class="panel panel-info">
   <div class="panel-heading">
-    メッセージ一覧
+    <h4><b>メッセージ一覧</b></h4>
   </div>
-    
+
   <div class="panel-body">
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
@@ -12,11 +12,22 @@
   </div>
 </div>
 
+<form class="form-horizontal">
+  
+  <div class="form-group">
 <%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
+  <label for="inputName" class="col-sm-0 control-label">　名前:</label>
+  <div class="col-sm-12">
+  <%= f.text_field :name, :placeholder => "Name" %>
+  </div>
+  </div>
 
-  内容:
-  <%= f.text_field :body %>
+  <div class="form-group">
+  <label for="inputMessage" class="col-sm-0 control-label">　内容:</label>
+  <div class="col-sm-12">
+  <%= f.text_area :body, :placeholder => "Message", size: "50x10" %>
+  </div>
+  </div>
+
   <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
