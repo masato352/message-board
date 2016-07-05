@@ -19,6 +19,9 @@ class MessagesController < ApplicationController
     end    
   end
 
+  def edit
+  end
+
   def update
     if @message.update(message_params)
       # 保存に成功した場合はトップページへリダイレクト
